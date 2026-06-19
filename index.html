@@ -237,6 +237,224 @@
       font-size: 12px;
     }
   }
+
+  /* ===== SWASTIKA EMBLEM ===== */
+  .swastika-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(165deg, #ffffff, #fff8ef);
+    border: 1.5px solid var(--saffron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(204, 82, 0, 0.15);
+    z-index: 3;
+  }
+
+  .swastika-emblem {
+    width: 30px;
+    height: 30px;
+    transform: rotate(0deg);
+    transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1),
+                filter 0.7s ease;
+    filter: drop-shadow(0 0 0 rgba(255, 102, 0, 0));
+  }
+
+  .swastika-emblem.pulse {
+    filter: drop-shadow(0 0 8px rgba(255, 102, 0, 0.6));
+  }
+
+  .swastika-emblem path,
+  .swastika-emblem circle {
+    fill: var(--saffron-dark);
+  }
+
+  @media (max-width: 600px) {
+    .swastika-badge {
+      width: 46px;
+      height: 46px;
+    }
+    .swastika-emblem {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  /* ===== DAILY SANATAN FACTS SLIDER ===== */
+  .facts-section {
+    background-color: var(--bg-cream);
+    padding: 38px 18px 36px;
+  }
+
+  .facts-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .facts-card {
+    position: relative;
+    background: linear-gradient(165deg, #ffffff, #fff8ef);
+    border: 1.5px solid var(--border-soft);
+    border-left: 5px solid var(--saffron);
+    border-radius: 16px;
+    padding: 34px 56px 26px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(204, 82, 0, 0.07);
+  }
+
+  .facts-track {
+    position: relative;
+    width: 100%;
+    min-height: 96px;
+  }
+
+  .fact-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    pointer-events: none;
+  }
+
+  .fact-slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .fact-source {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: var(--saffron);
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  .fact-text {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+  }
+
+  .fact-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .whatsapp-share {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .whatsapp-share:hover,
+  .whatsapp-share:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.35);
+  }
+
+  .whatsapp-share svg {
+    width: 14px;
+    height: 14px;
+    fill: #ffffff;
+  }
+
+  .facts-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--saffron);
+    background-color: #ffffff;
+    color: var(--saffron-dark);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    z-index: 2;
+  }
+
+  .facts-arrow:hover,
+  .facts-arrow:focus-visible {
+    background-color: var(--saffron);
+    color: #ffffff;
+  }
+
+  .facts-arrow-left { left: 10px; }
+  .facts-arrow-right { right: 10px; }
+
+  .facts-dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 16px;
+  }
+
+  .facts-dots button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--border-soft);
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s ease, width 0.2s ease;
+  }
+
+  .facts-dots button.active {
+    background-color: var(--saffron);
+    width: 22px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 600px) {
+    .facts-card {
+      padding: 22px 40px;
+      min-height: 175px;
+    }
+
+    .fact-text {
+      font-size: 14.5px;
+    }
+
+    .facts-arrow {
+      width: 28px;
+      height: 28px;
+      font-size: 17px;
+    }
+
+    .facts-arrow-left { left: 4px; }
+    .facts-arrow-right { right: 4px; }
+  }
 </style>
 </head>
 <body>
@@ -276,6 +494,53 @@
 
 <!-- Rest of the page content goes below in later steps -->
 
+<section class="facts-section">
+  <div class="facts-inner">
+
+    <div class="facts-card" id="factsCard">
+
+      <div class="swastika-badge">
+        <svg id="swastikaEmblem" class="swastika-emblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Traditional swastika arms -->
+          <path d="
+            M50 15
+            L50 42
+            L77 42
+            L77 50
+            L58 50
+            L58 50
+            L58 85
+            L50 85
+            L50 58
+            L23 58
+            L23 50
+            L42 50
+            L42 15
+            Z
+          "/>
+          <!-- Four sacred dots in each quadrant -->
+          <circle cx="68" cy="32" r="3.4"/>
+          <circle cx="68" cy="68" r="3.4"/>
+          <circle cx="32" cy="68" r="3.4"/>
+          <circle cx="32" cy="32" r="3.4"/>
+        </svg>
+      </div>
+
+      <button class="facts-arrow facts-arrow-left" id="factPrev" aria-label="Previous fact">‹</button>
+
+      <div class="facts-track" id="factsTrack">
+        <!-- Slides are injected by JS from the factsData array below -->
+      </div>
+
+      <button class="facts-arrow facts-arrow-right" id="factNext" aria-label="Next fact">›</button>
+
+    </div>
+
+    <div class="facts-dots" id="factsDots"></div>
+
+  </div>
+</section>
+
 <script>
   // Mobile menu toggle
   const navToggle = document.getElementById('navToggle');
@@ -297,6 +562,104 @@
       // if (btn.dataset.lang === 'hi') window.location.href = 'index_hi.html';
     });
   });
+
+  // ===== DAILY SANATAN FACTS DATA =====
+  // Add/edit facts here. Later this can be replaced by a daily auto-updating API.
+  const factsData = [
+    {
+      source: "Hanuman Chalisa",
+      text: "Hanuman Chalisa ki ek chaupai mein Surya aur Prithvi ke beech ki doori ka ekdam sateek vaigyanik anuman diya gaya hai — \"Jug sahastra yojan par Bhanu\" — jo aaj ke maape gaye distance ke kareeb hai."
+    },
+    {
+      source: "Rigveda",
+      text: "Rigveda ke ek shlok mein prakash (light) ki gati ka ullekh milta hai, jise kuch vidwan aadhunik 'speed of light' ke anuman se jodte hain."
+    },
+    {
+      source: "Yajurveda",
+      text: "Yajurveda mein sankhya pranali (number system) ka vistrit ullekh hai, jisme bade ankon (jaise das ki shaktiyaan) ko naam diye gaye the — jo duniya ki sabse purani decimal system maani jaati hai."
+    },
+    {
+      source: "Sushruta Samhita",
+      text: "Sushruta Samhita mein 300 se zyada shalya chikitsa (surgical) procedures aur 120 se zyada surgical instruments ka varnan milta hai, jise prachin shalya chikitsa ka aadhaar maana jaata hai."
+    },
+    {
+      source: "Surya Siddhanta",
+      text: "Surya Siddhanta granth mein Prithvi ke vyaas (diameter) ka anuman diya gaya hai, jo aadhunik maapon se kaafi mel khaata hai — bina kisi dooribeen (telescope) ke."
+    }
+  ];
+
+  const factsTrack = document.getElementById('factsTrack');
+  const factsDots = document.getElementById('factsDots');
+  const swastikaEmblem = document.getElementById('swastikaEmblem');
+  let swastikaAngle = 0; // tracks cumulative rotation
+
+  // Build slides + dots dynamically
+  factsData.forEach((fact, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'fact-slide' + (i === 0 ? ' active' : '');
+    slide.innerHTML = `
+      <span class="fact-source">${fact.source}</span>
+      <p class="fact-text">${fact.text}</p>
+      <div class="fact-footer">
+        <a class="whatsapp-share" target="_blank" rel="noopener"
+           href="https://wa.me/?text=${encodeURIComponent(fact.source + ': ' + fact.text)}">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.6C8 23.4 10 24 12 24c6.6 0 12-5.4 12-12S18.6 0 12 0zm0 22c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.6 15.6 2 13.8 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10zm5.5-7.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5C9.9 9.1 9.4 7.9 9.2 7.4c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9 1-.9 2.3 0 1.3 1 2.6 1.1 2.8.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.3z"/></svg>
+          Share
+        </a>
+      </div>
+    `;
+    factsTrack.appendChild(slide);
+
+    const dot = document.createElement('button');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(i));
+    factsDots.appendChild(dot);
+  });
+
+  const slides = document.querySelectorAll('.fact-slide');
+  const dots = document.querySelectorAll('.facts-dots button');
+  let currentIndex = 0;
+  let autoTimer;
+
+  function spinSwastika() {
+    // Full 360deg spin on each fact change, always settling back upright (0deg)
+    swastikaAngle += 360;
+    swastikaEmblem.style.transform = `rotate(${swastikaAngle}deg)`;
+    swastikaEmblem.classList.add('pulse');
+    setTimeout(() => {
+      swastikaEmblem.classList.remove('pulse');
+      // Reset the underlying angle (without animating) so the number never grows huge
+      // and the element is confirmed sitting at a clean upright multiple of 360deg
+      swastikaEmblem.style.transition = 'none';
+      swastikaAngle = 0;
+      swastikaEmblem.style.transform = 'rotate(0deg)';
+      // Force reflow then restore transition for the next spin
+      void swastikaEmblem.offsetWidth;
+      swastikaEmblem.style.transition = '';
+    }, 700);
+  }
+
+  function goToSlide(index) {
+    slides[currentIndex].classList.remove('active');
+    dots[currentIndex].classList.remove('active');
+    currentIndex = (index + slides.length) % slides.length;
+    slides[currentIndex].classList.add('active');
+    dots[currentIndex].classList.add('active');
+    spinSwastika();
+    resetAutoTimer();
+  }
+
+  function nextSlide() { goToSlide(currentIndex + 1); }
+  function prevSlide() { goToSlide(currentIndex - 1); }
+
+  document.getElementById('factNext').addEventListener('click', nextSlide);
+  document.getElementById('factPrev').addEventListener('click', prevSlide);
+
+  function resetAutoTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, 6000); // auto-rotate every 6 seconds
+  }
+  resetAutoTimer();
 </script>
 
 </body>
