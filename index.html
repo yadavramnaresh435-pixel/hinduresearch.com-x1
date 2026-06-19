@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om Hindu Research Portal</title>
+
+<!-- Google Fonts: Devanagari-friendly serif for brand, clean sans for nav -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-cream: #fff5eb;
+    --saffron: #ff6600;
+    --saffron-dark: #cc5200;
+    --gold: #d4a017;
+    --text-dark: #2e2a26;
+    --text-muted: #6b645c;
+    --border-soft: #f0ddc4;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--bg-cream);
+    border-bottom: 2px solid var(--saffron);
+    box-shadow: 0 2px 10px rgba(255, 102, 0, 0.06);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  /* Brand / Logo */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-dark);
+  }
+
+  .om-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--saffron), var(--gold));
+    color: #fff5eb;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(204, 82, 0, 0.35);
+  }
+
+  .brand-text {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 19px;
+    line-height: 1.15;
+    letter-spacing: 0.2px;
+  }
+
+  .brand-text .brand-accent {
+    color: var(--saffron-dark);
+  }
+
+  /* ===== NAV (desktop) ===== */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .main-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    padding: 4px 2px;
+    transition: color 0.2s ease;
+  }
+
+  .main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--saffron);
+    transition: width 0.25s ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a:focus-visible {
+    color: var(--saffron-dark);
+  }
+
+  .main-nav a:hover::after,
+  .main-nav a:focus-visible::after {
+    width: 100%;
+  }
+
+  /* ===== Right side controls ===== */
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Language Switcher */
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1.5px solid var(--saffron);
+    border-radius: 999px;
+    padding: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .lang-switch button {
+    border: none;
+    background: transparent;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--saffron-dark);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .lang-switch button.active {
+    background-color: var(--saffron);
+    color: #fff5eb;
+  }
+
+  /* Hamburger (mobile only) */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .nav-toggle span {
+    width: 22px;
+    height: 2.5px;
+    background-color: var(--saffron-dark);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* ===== Mobile responsive ===== */
+  @media (max-width: 760px) {
+    .brand-text {
+      font-size: 16px;
+    }
+
+    .main-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--bg-cream);
+      border-bottom: 2px solid var(--saffron);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .main-nav.open {
+      max-height: 280px;
+    }
+
+    .main-nav a {
+      width: 100%;
+      padding: 14px 20px;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .main-nav a::after {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .lang-switch button {
+      padding: 5px 9px;
+      font-size: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <a href="#" class="brand">
+      <span class="om-mark">ॐ</span>
+      <span class="brand-text">
+        Hindu <span class="brand-accent">Research</span> Portal
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#">Home</a>
+      <a href="#">Research</a>
+      <a href="#">E-Books</a>
+      <a href="#">Marketplace</a>
+    </nav>
+
+    <div class="header-controls">
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" class="active" data-lang="en">EN</button>
+        <button type="button" data-lang="hi">हिं</button>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Rest of the page content goes below in later steps -->
+
+<script>
+  // Mobile menu toggle
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('open');
+    navToggle.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Language switcher (placeholder logic - Step 1 only toggles button state)
+  const langButtons = document.querySelectorAll('#langSwitch button');
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      langButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Future step: redirect to index_hi.html when 'hi' is selected
+      // if (btn.dataset.lang === 'hi') window.location.href = 'index_hi.html';
+    });
+  });
+</script>
+
+</body>
+</html>
