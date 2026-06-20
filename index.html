@@ -263,6 +263,12 @@
     box-shadow: 0 10px 26px rgba(204, 82, 0, 0.32);
   }
 
+  /* While actively being dragged, kill the transition so it tracks the finger 1:1 */
+  .rishi-widget.dragging {
+    transition: none;
+    cursor: grabbing;
+  }
+
   /* Compact state once the page is scrolled — shrinks ~30% */
   .rishi-widget.compact {
     padding: 6px 12px 6px 6px;
@@ -868,50 +874,62 @@
     .facts-arrow-left { left: 4px; }
     .facts-arrow-right { right: 4px; }
   }
-</style>
-</head>
-<body>
 
-<header class="site-header">
-  <div class="header-inner">
+  /* ===== UNIVERSAL SEARCH BAR ===== */
+  .search-section {
+    padding: 0 18px 40px;
+  }
 
-    <a href="#" class="brand">
-      <span class="om-mark">ॐ</span>
-      <span class="brand-text">
-        Hindu <span class="brand-accent">Research</span> Portal
-      </span>
-    </a>
+  .search-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
 
-    <nav class="main-nav" id="mainNav">
-      <a href="#">Home</a>
-      <a href="#">Research</a>
-      <a href="#">E-Books</a>
-      <a href="#">Marketplace</a>
-    </nav>
+  .search-bar-wrap {
+    position: relative;
+    border-radius: 8px;
+    padding: 1.5px;
+    background: linear-gradient(120deg, #1b5e20, #81c784);
+    box-shadow: 0 6px 18px rgba(27, 94, 32, 0.12);
+  }
 
-    <div class="header-controls">
-      <div class="lang-switch" id="langSwitch">
-        <button type="button" class="active" data-lang="en">EN</button>
-        <button type="button" data-lang="hi">हिं</button>
-      </div>
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border-radius: 6.5px;
+    padding: 13px 16px;
+  }
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+  .search-icon {
+    flex-shrink: 0;
+    width: 19px;
+    height: 19px;
+    color: #2e7d32;
+  }
 
-  </div>
-</header>
+  .search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 14.5px;
+    color: var(--text-dark);
+    min-width: 0;
+  }
 
-<!-- Rest of the page content goes below in later steps -->
+  .search-bar input::placeholder {
+    color: #a89a89;
+  }
 
-<section class="facts-section">
-  <div class="facts-inner">
-
-    <div class="facts-card" id="factsCard">
-
-      <div class="swastika-badge">
-        <svg id="swastikaEmblem" class="swastika-emblem" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- Traditional swas
+  .search-clear-btn {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--border-soft);
+    color: var(--tex
